@@ -29,16 +29,16 @@ $(document).ready(function() {
             $('#hatspot').append('<img id="options" style="height:320px;width:100%; margin-top:70px" src="assets/images/options.gif">')
         },9200)
         setTimeout(function() {
-            $('#theme1').append('<button class="btn btn-option" id="topic1" style="background-color: black;color:white; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">1</button>')  
+            $('#theme1').append('<button class="btn btn-option" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
         },4100)
         setTimeout(function() {
-            $('#theme2').append('<button class="btn btn-option" id="topic2" style="background-color: black;color:white; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">2</button>')  
+            $('#theme2').append('<button class="btn btn-option" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')  
         },5200)
         setTimeout(function() {
-            $('#theme3').append('<button class="btn btn-option" id="topic3" style="background-color: black;color:white; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">3</button>')  
+            $('#theme3').append('<button class="btn btn-option" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')  
         },6300)
         setTimeout(function() {
-            $('#theme4').append('<button class="btn btn-option" id="topic4" style="background-color: black;color:white; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">4</button>')  
+            $('#theme4').append('<button class="btn btn-option" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Sports</button>')  
         },7400)
         })
         setTimeout(function() {
@@ -51,7 +51,8 @@ $(document).ready(function() {
                 $(this).css("border", "2px pink solid").css("color", "white");
             })
         },9000)
-        
-    
-        
     })
+
+    function gameTvShows() {
+
+    }

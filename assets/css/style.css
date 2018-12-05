@@ -3,6 +3,7 @@
     width:100%;
     height:136.5px;
     background-color:black;
+    opacity: 0.99
 }
 #trivia {
     width:600px;
@@ -45,7 +46,6 @@
 /* Body style */
 body {
     background: url("../images/background.jpg");
-    background-color:rgba(0, 0, 0, 0.5)
 }
 #push1 {
     height: 50px;
