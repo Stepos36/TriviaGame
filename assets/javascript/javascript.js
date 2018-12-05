@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //INTRO PART
     $('#choice').click(function(){
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
         setTimeout(function() {
@@ -44,11 +45,13 @@ $(document).ready(function() {
             $(".btn-option").mouseover(function() {
                 $(this).css("border", "2px red solid").css("color", "red");
             })
-        },8000)
-        })
+        },9000)
         setTimeout(function() {
             $(".btn-option").mouseout(function(){
                 $(this).css("border", "2px pink solid").css("color", "white");
             })
-        },8000)
-
+        },9000)
+        
+    
+        
+    })
