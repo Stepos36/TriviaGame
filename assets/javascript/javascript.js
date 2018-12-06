@@ -16,8 +16,8 @@ $(document).ready(function() {
             for( i=0;i<4;i++) setTimeout( function() {
                 $('#hat').circulate({
                     speed: 300,
-                    height: Math.floor(Math.random()*300) - 70,
-                    width: Math.floor(Math.random()*300) - 100
+                    height: Math.floor(Math.random()*200) - 70,
+                    width: Math.floor(Math.random()*700) - 100
                 });
                 setInterval( function() {
                     $('#hat').css("filter", "brightness(2)")
