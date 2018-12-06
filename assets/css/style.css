@@ -7,6 +7,10 @@
 }
 #trivia {
     width:600px;
+    background-color: white
+}
+#trivia:hover {
+    background: -webkit-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%);
 }
 #restart,#main-menu {
     color:white;
@@ -20,21 +24,19 @@
     margin-left:15px
 }
 #restart:hover,#main-menu:hover {
-    color:#C5C5C5;
+    color:red;
     font-size: 52px;
-    border: 2px solid #C5C5C5;
     border-radius: 10px;
     cursor: pointer;
 }
 #restart:hover{
     margin-left: -6.5px;
-    margin-right: 9px;
+    margin-right: 13px;
     width:160px;
     padding-right: 3px
 }
 #main-menu:hover{
     margin-left:10px;
-   
 }
 #topbar-content {
     margin-left:297px;
@@ -59,8 +61,8 @@ body {
     margin-top: 100px
 }
 #choice:hover {
-    border: 2px #C5C5C5 solid;
+    border: 2px rgb(32, 19, 19) solid;
     margin-top: -1px;
-    color:#C5C5C5;
+    color: red;
     margin-top: 100px
 }

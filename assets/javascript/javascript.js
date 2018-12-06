@@ -1,4 +1,11 @@
 $(document).ready(function() {
+    $(document).on('mouseover', '.btn-option', function() {
+             $(this).css("border", "2px red solid").css("color", "red");
+            })
+    $(document).on('mouseout', '.btn-option', function() {
+            $(this).css("border", "2px pink solid").css("color", "pink");
+            })
+
     //INTRO PART
     $('#choice').click(function(){
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
@@ -41,16 +48,9 @@ $(document).ready(function() {
             $('#theme4').append('<button class="btn btn-option" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Sports</button>')  
         },7400)
         })
-        setTimeout(function() {
-            $(".btn-option").mouseover(function() {
-                $(this).css("border", "2px red solid").css("color", "red");
-            })
-        },9000)
-        setTimeout(function() {
-            $(".btn-option").mouseout(function(){
-                $(this).css("border", "2px pink solid").css("color", "white");
-            })
-        },9000)
+        $(".btn-option").click( function(){
+            $
+        })
     })
 
     function gameTvShows() {
