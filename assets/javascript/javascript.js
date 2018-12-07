@@ -11,6 +11,7 @@ $(document).ready(function() {
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
         setTimeout(function() {
             $('#choice').empty()
+            //HAT 
             $('#hatspot').append('<img id="hat" style="opacity:0; height:320px;width:100%; margin-top:70px" src="assets/images/hat.png">')
             $('#hat').animate({opacity: '1'},1000);
             for( i=0;i<4;i++) setTimeout( function() {
@@ -29,10 +30,12 @@ $(document).ready(function() {
         }, 2000)
         setTimeout(function() {
             $('#hatspot').empty()
+            //EXPLOSION
             $('#hatspot').append('<img id="explosion" style="height:320px;width:100%; margin-top:70px" src="assets/images/explosion.gif">')    
         },8500)
         setTimeout(function() {
             $('#hatspot').empty()
+            //OPTIONS AND GIF IN THE CENTER
             $('#hatspot').append('<img id="options" style="height:320px;width:100%; margin-top:70px" src="assets/images/options.gif">')
         },9200)
         setTimeout(function() {
@@ -48,9 +51,14 @@ $(document).ready(function() {
             $('#theme4').append('<button class="btn btn-option" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Sports</button>')  
         },7400)
         })
-        $(".btn-option").click( function(){
-            $
+        $(document).on('click', '.btn-option', function() {
+            $('.start').empty();
+           })
+        var template = $('#gametemplate').html();
+        $(document).on('click', '#topic1', function() {
+         $('.start').html(template);
         })
+
     })
 
     function gameTvShows() {
