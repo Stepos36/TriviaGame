@@ -1,3 +1,30 @@
+var tvShowsGame = {
+    questions: [
+    {
+        question: "What is the real first name of Ned Stark from Game of Thrones?",
+        choice1: "Edward",
+        choice2: "Derek",
+        choice3: "Edgar",
+        choice4: "Eddard",
+        questionpic: "",
+        winpicture: ""
+    },
+    {
+        display: "How many seasons does The Simpsons show have to this moment?",
+        choice1: "30",
+        choice2: "10",
+        choice3: "54",
+        choice4: "25",
+        questionpic: "",
+        winpicture: ""
+    }
+],
+    correctAnswers: [],
+    css: "",
+    title: ""
+}
+
+
 $(document).ready(function() {
     $(document).on('mouseover', '.btn-option', function() {
              $(this).css("border", "2px red solid").css("color", "red");
