@@ -1,3 +1,4 @@
+var currentQuestion = 0;
 var tvShowsGame = {
     questions: [
     {
@@ -19,7 +20,7 @@ var tvShowsGame = {
         winpicture: ""
     }
 ],
-    correctAnswers: [],
+    correctAnswers: ["Eddard", "30",],
     css: "",
     title: ""
 }
@@ -84,10 +85,18 @@ $(document).ready(function() {
         var template = $('#gametemplate').html();
         $(document).on('click', '#topic1', function() {
          $('.start').html(template);
-        })
-
+         startGame()
+         })
     })
 
-    function gameTvShows() {
+    function startGame() {
+        nextQuestion()
+    }
 
+    function nextQuestion() {
+        $('#question').html(tvShowsGame.questions[currentQuestion].question)
+        $('#answer1').html(tvShowsGame.questions[currentQuestion].choice1)
+        $('#answer2').html(tvShowsGame.questions[currentQuestion].choice2)
+        $('#answer3').html(tvShowsGame.questions[currentQuestion].choice3)
+        $('#answer4').html(tvShowsGame.questions[currentQuestion].choice4)
     }
