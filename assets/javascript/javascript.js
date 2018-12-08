@@ -90,6 +90,7 @@ $(document).ready(function() {
 
         $(document).on('click', '.submitter', function() {
             currentQuestion++;
+            $('.inputs').prop('checked', false)
             nextQuestion()
         })
     })
@@ -99,9 +100,10 @@ $(document).ready(function() {
     }
 
     function nextQuestion() {
-        $('#question').html(tvShowsGame.questions[currentQuestion].question)
-        $('#answer1').html(tvShowsGame.questions[currentQuestion].choice1)
-        $('#answer2').html(tvShowsGame.questions[currentQuestion].choice2)
-        $('#answer3').html(tvShowsGame.questions[currentQuestion].choice3)
+        
+        $('#question').html(tvShowsGame.questions[currentQuestion].question);
+        $('#answer1').html(tvShowsGame.questions[currentQuestion].choice1);
+        $('#answer2').html(tvShowsGame.questions[currentQuestion].choice2);
+        $('#answer3').html(tvShowsGame.questions[currentQuestion].choice3);
         $('#answer4').html(tvShowsGame.questions[currentQuestion].choice4)
     }
