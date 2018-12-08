@@ -1,5 +1,6 @@
 var currentQuestion = 0;
 var chosenGame = 0;
+var answer;
 var time = 0;
 var remainingQuestions;
 var tvShowsGame = {
@@ -95,8 +96,26 @@ $(document).ready(function() {
             currentQuestion++;
             remainingQuestions--;
             clearInterval(tictac);
+            console.log(answer)
+            checkAnswer()
             $('.inputs').prop('checked', false)
             setTimeout(nextQuestion, 4000)
+        })
+        $(document).on('click', '#input1', function() {
+            $(this).prop('checked', true)
+            inputCatcher()
+        })
+        $(document).on('click', '#input2', function() {
+            $(this).prop('checked', true)
+            inputCatcher()
+        })
+        $(document).on('click', '#input3', function() {
+            $(this).prop('checked', true)
+            inputCatcher()
+        })
+        $(document).on('click', '#input4', function() {
+            $(this).prop('checked', true)
+            inputCatcher()
         })
     })
 
@@ -109,11 +128,33 @@ $(document).ready(function() {
 
     function nextQuestion() {
         $('#question').html(chosenGame.questions[currentQuestion].question);
-        $('#answer1').html(chosenGame.questions[currentQuestion].choice1);
-        $('#answer2').html(chosenGame.questions[currentQuestion].choice2);
-        $('#answer3').html(chosenGame.questions[currentQuestion].choice3);
+        $('#answer1').html(chosenGame.questions[currentQuestion].choice1)
+        $('#answer2').html(chosenGame.questions[currentQuestion].choice2)
+        $('#answer3').html(chosenGame.questions[currentQuestion].choice3)
         $('#answer4').html(chosenGame.questions[currentQuestion].choice4)
         timerStart();
+    }
+    function inputCatcher() {
+        if($('#input1').prop('checked')) {
+            answer = chosenGame.questions[currentQuestion].choice1
+        };
+        if($('#input2').prop('checked')) {
+            answer = chosenGame.questions[currentQuestion].choice2
+        };
+        if($('#input3').prop('checked')) {
+            answer = chosenGame.questions[currentQuestion].choice3
+        };
+        if($('#input4').prop('checked')) {
+            answer = chosenGame.questions[currentQuestion].choice4
+        }
+    }
+    function checkAnswer() {
+        if ((chosenGame.correctAnswers).includes(answer)) {
+            alert('win!')
+        }
+        else {
+            alert('lose')
+        }
     }
     
     function timerStart() {
