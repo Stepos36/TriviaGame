@@ -15,7 +15,7 @@ var tvShowsGame = {
         choice3: "Edgar",
         choice4: "Eddard",
         questionpic: "",
-        winpicture: ""
+        winpicture: "assets/images/edStark.gif"
     },
     {
         question: "How many seasons does The Simpsons show have to this moment?",
@@ -24,7 +24,7 @@ var tvShowsGame = {
         choice3: "54",
         choice4: "27",
         questionpic: "",
-        winpicture: ""
+        winpicture: "assets/images/simpson.gif"
     }
 ],
     correctAnswers: ["Eddard", "30",],
@@ -40,7 +40,6 @@ $(document).ready(function() {
     $(document).on('mouseout', '.btn-option', function() {
             $(this).css("border", "2px pink solid").css("color", "pink");
             })
-
     //INTRO PART
     $('#choice').click(function(){
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
@@ -96,12 +95,13 @@ $(document).ready(function() {
            })
         //Submit a question
         $(document).on('click', '.submitter', function() {
+            checkAnswer()
             currentQuestion++;
             remainingQuestions--;
             clearInterval(tictac);
-            checkAnswer()
             $('.inputs').prop('checked', false)
             setTimeout(nextQuestion, 4000)
+            
         })
         $(document).on('click', '#input1', function() {
             $(this).prop('checked', true)
@@ -133,6 +133,11 @@ $(document).ready(function() {
             gameOver();
         }
         else {
+        $('.imageboard').hide()
+        $('#timer').show()
+        $('#answers1').show()
+        $('#answers2').show()
+        $('.submitter').show()    
         $('#question').html(chosenGame.questions[currentQuestion].question);
         $('#answer1').html(chosenGame.questions[currentQuestion].choice1)
         $('#answer2').html(chosenGame.questions[currentQuestion].choice2)
@@ -158,6 +163,12 @@ $(document).ready(function() {
     function checkAnswer() {
         if ((chosenGame.correctAnswers).includes(answer)) {
             alert('win!')
+            $('#question').html('<h1>Yay! This is a correct answer!</h1>');
+            $('#timer').hide()
+            $('#answers1').hide()
+            $('#answers2').hide()
+            $('.submitter').hide()
+            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"winimage\" src=" + chosenGame.questions[currentQuestion].winpicture + ">").show()
             wins++
         }
         else {
@@ -170,12 +181,17 @@ $(document).ready(function() {
         $('#question').html('<h1>Game is over</h1>');
         $('#timer').empty()
         $('.game').append('</br><div  class="row" id="answers3"></div>')
+        $('#answers1').show()
+        $('#answers2').show()
         $('#answers1').html('<p style="text-align:center; width:100%">Correct answers: ' + wins + '</p>')
         $('#answers2').html('<p style="text-align:center; width:100%">Wrong answers: ' + loses + '</p>')
         $('#answers3').html('<p style="text-align:center; width:100%">Timed out: '+ timeouts + '</p>')
         $('.submitter').hide()
+        $('.imagerow').hide()
     }
-
+    function restoreTemplate() {
+        $('.start').html(template)
+    }
     function timerStart() {
         time = 15
         $('#time').html(time)
