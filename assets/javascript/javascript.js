@@ -1,5 +1,7 @@
 var currentQuestion = 0;
-var chosenGame = 0
+var chosenGame = 0;
+var time = 0;
+var remainingQuestions;
 var tvShowsGame = {
     questions: [
     {
@@ -12,11 +14,11 @@ var tvShowsGame = {
         winpicture: ""
     },
     {
-        display: "How many seasons does The Simpsons show have to this moment?",
+        question: "How many seasons does The Simpsons show have to this moment?",
         choice1: "30",
         choice2: "10",
         choice3: "54",
-        choice4: "25",
+        choice4: "27",
         questionpic: "",
         winpicture: ""
     }
@@ -81,20 +83,27 @@ $(document).ready(function() {
         },7400)
         })
         var template = $('#gametemplate').html();
+        //Choose the game theme
         $(document).on('click', '.btn-option', function() {
             $('.start').empty();
             chosenGame = eval($(this).attr("value"))
             $('.start').html(template);
             startGame()
            })
+        //Submit a question
         $(document).on('click', '.submitter', function() {
             currentQuestion++;
+            remainingQuestions--;
+            clearInterval(tictac);
             $('.inputs').prop('checked', false)
-            nextQuestion()
+            setTimeout(nextQuestion, 4000)
         })
     })
 
     function startGame() {
+        remainingQuestions = chosenGame.questions.length
+        $("#timer").html("You have <span id=\"time\">15</span> seconds left");
+        console.log(remainingQuestions)
         nextQuestion()
     }
 
@@ -104,4 +113,18 @@ $(document).ready(function() {
         $('#answer2').html(chosenGame.questions[currentQuestion].choice2);
         $('#answer3').html(chosenGame.questions[currentQuestion].choice3);
         $('#answer4').html(chosenGame.questions[currentQuestion].choice4)
+        timerStart();
+    }
+    
+    function timerStart() {
+        time = 15
+        $('#time').html(time)
+        tictac = setInterval(timeCount, 1000)
+    }
+
+    function timeCount() {
+        if(time > 0) {
+            time--;
+            $('#time').html(time)
+        }
     }
