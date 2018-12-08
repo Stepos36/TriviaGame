@@ -3,6 +3,9 @@ var chosenGame = 0;
 var answer;
 var time = 0;
 var remainingQuestions;
+var wins = 0
+var loses = 0
+var timeouts = 0
 var tvShowsGame = {
     questions: [
     {
@@ -96,7 +99,6 @@ $(document).ready(function() {
             currentQuestion++;
             remainingQuestions--;
             clearInterval(tictac);
-            console.log(answer)
             checkAnswer()
             $('.inputs').prop('checked', false)
             setTimeout(nextQuestion, 4000)
@@ -127,12 +129,17 @@ $(document).ready(function() {
     }
 
     function nextQuestion() {
+        if (remainingQuestions == 0) {
+            gameOver();
+        }
+        else {
         $('#question').html(chosenGame.questions[currentQuestion].question);
         $('#answer1').html(chosenGame.questions[currentQuestion].choice1)
         $('#answer2').html(chosenGame.questions[currentQuestion].choice2)
         $('#answer3').html(chosenGame.questions[currentQuestion].choice3)
         $('#answer4').html(chosenGame.questions[currentQuestion].choice4)
         timerStart();
+        }
     }
     function inputCatcher() {
         if($('#input1').prop('checked')) {
@@ -151,12 +158,24 @@ $(document).ready(function() {
     function checkAnswer() {
         if ((chosenGame.correctAnswers).includes(answer)) {
             alert('win!')
+            wins++
         }
         else {
             alert('lose')
+            loses++
         }
     }
     
+    function gameOver() {
+        $('#question').html('<h1>Game is over</h1>');
+        $('#timer').empty()
+        $('.game').append('</br><div  class="row" id="answers3"></div>')
+        $('#answers1').html('<p style="text-align:center; width:100%">Correct answers: ' + wins + '</p>')
+        $('#answers2').html('<p style="text-align:center; width:100%">Wrong answers: ' + loses + '</p>')
+        $('#answers3').html('<p style="text-align:center; width:100%">Timed out: '+ timeouts + '</p>')
+        $('.submitter').hide()
+    }
+
     function timerStart() {
         time = 15
         $('#time').html(time)
@@ -167,5 +186,11 @@ $(document).ready(function() {
         if(time > 0) {
             time--;
             $('#time').html(time)
+        }
+        if (time === 0) {
+            clearInterval(tictac);
+            timeouts++;
+            setTimeout(nextQuestion, 4000);
+            nextQuestion()
         }
     }
