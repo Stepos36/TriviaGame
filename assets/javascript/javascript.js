@@ -1,4 +1,5 @@
 var currentQuestion = 0;
+var chosenGame = 0
 var tvShowsGame = {
     questions: [
     {
@@ -67,7 +68,7 @@ $(document).ready(function() {
             $('#hatspot').append('<img id="options" style="height:320px;width:100%; margin-top:70px" src="assets/images/options.gif">')
         },9200)
         setTimeout(function() {
-            $('#theme1').append('<button class="btn btn-option" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
+            $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
         },4100)
         setTimeout(function() {
             $('#theme2').append('<button class="btn btn-option" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')  
@@ -79,15 +80,13 @@ $(document).ready(function() {
             $('#theme4').append('<button class="btn btn-option" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Sports</button>')  
         },7400)
         })
+        var template = $('#gametemplate').html();
         $(document).on('click', '.btn-option', function() {
             $('.start').empty();
+            chosenGame = eval($(this).attr("value"))
+            $('.start').html(template);
+            startGame()
            })
-        var template = $('#gametemplate').html();
-        $(document).on('click', '#topic1', function() {
-         $('.start').html(template);
-         startGame()
-         })
-
         $(document).on('click', '.submitter', function() {
             currentQuestion++;
             $('.inputs').prop('checked', false)
@@ -100,10 +99,9 @@ $(document).ready(function() {
     }
 
     function nextQuestion() {
-        
-        $('#question').html(tvShowsGame.questions[currentQuestion].question);
-        $('#answer1').html(tvShowsGame.questions[currentQuestion].choice1);
-        $('#answer2').html(tvShowsGame.questions[currentQuestion].choice2);
-        $('#answer3').html(tvShowsGame.questions[currentQuestion].choice3);
-        $('#answer4').html(tvShowsGame.questions[currentQuestion].choice4)
+        $('#question').html(chosenGame.questions[currentQuestion].question);
+        $('#answer1').html(chosenGame.questions[currentQuestion].choice1);
+        $('#answer2').html(chosenGame.questions[currentQuestion].choice2);
+        $('#answer3').html(chosenGame.questions[currentQuestion].choice3);
+        $('#answer4').html(chosenGame.questions[currentQuestion].choice4)
     }
