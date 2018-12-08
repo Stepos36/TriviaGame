@@ -87,6 +87,11 @@ $(document).ready(function() {
          $('.start').html(template);
          startGame()
          })
+
+        $(document).on('click', '.submitter', function() {
+            currentQuestion++;
+            nextQuestion()
+        })
     })
 
     function startGame() {
