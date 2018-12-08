@@ -31,6 +31,11 @@ var tvShowsGame = {
     css: "",
     title: ""
 }
+var loseImages = [
+        "assets/images/fails/fail1.gif",
+        "assets/images/fails/fail2.gif",
+        "assets/images/fails/fail3.gif"
+    ]
 
 
 $(document).ready(function() {
@@ -162,7 +167,6 @@ $(document).ready(function() {
     }
     function checkAnswer() {
         if ((chosenGame.correctAnswers).includes(answer)) {
-            alert('win!')
             $('#question').html('<h1>Yay! This is a correct answer!</h1>');
             $('#timer').hide()
             $('#answers1').hide()
@@ -172,8 +176,13 @@ $(document).ready(function() {
             wins++
         }
         else {
-            alert('lose')
             loses++
+            $('#question').html('<h1>This is a wrong answer! The correct answer was ' + chosenGame.correctAnswers[currentQuestion] + '</h1>');
+            $('#timer').hide()
+            $('#answers1').hide()
+            $('#answers2').hide()
+            $('.submitter').hide()
+            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show()
         }
     }
     
