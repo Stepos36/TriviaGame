@@ -175,7 +175,6 @@ $(document).ready(function() {
         //Submit a question
         $(document).on('click', '.submitter', function() {
             checkAnswer()
-            currentQuestion++;
             remainingQuestions--;
             clearInterval(tictac);
             $('.inputs').prop('checked', false)
@@ -205,6 +204,11 @@ $(document).ready(function() {
     })
 
     function startGame() {
+        currentQuestion = 0;
+        time = 0;
+        wins = 0;
+        loses = 0;
+        timeouts = 0;
         remainingQuestions = chosenGame.questions.length
         $("#timer").html("You have <span id=\"time\">15</span> seconds left");
         console.log(remainingQuestions)
@@ -291,8 +295,17 @@ $(document).ready(function() {
             $('#time').html(time)
         }
         if (time === 0) {
+            $('#timer').hide()
+            $('#answers1').hide()
+            $('#answers2').hide()
+            $('.submitter').hide()
+            $('#question').html('<h1>Time is up! The correct answer was ' + chosenGame.correctAnswers[currentQuestion] + '</h1>');
+            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show()
+            $('.inputs').prop('checked', false)
             clearInterval(tictac);
             timeouts++;
             setTimeout(nextQuestion, 4000);
+            currentQuestion++
+            remainingQuestions--
         }
     }
