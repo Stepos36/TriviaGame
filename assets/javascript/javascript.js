@@ -176,13 +176,22 @@ $(document).ready(function() {
         $(document).on('click', '.submitter', function() {
             checkAnswer()
             remainingQuestions--;
+            currentQuestion++
             clearInterval(tictac);
             $('.inputs').prop('checked', false)
             setTimeout(nextQuestion, 4000)
+        })
+        var menuTemplate = $('#menuTemplate').html()
         $(document).on('click', '#restart', function() {
-            $('#hatspot').empty();
-            
-            })
+            $('.start').empty();
+            $('.start').html(menuTemplate);
+            $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')
+            $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')
+            $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')
+            $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>')
+            $('#choice').hide()
+            currentQuestion = 0
+            clearInterval(tictac);
         })
         //Radio checkboxes are given property of "checked" once user clicks on it
         $(document).on('click', '#input1', function() {
