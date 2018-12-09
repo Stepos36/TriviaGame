@@ -3,9 +3,9 @@ var chosenGame = 0;
 var answer;
 var time = 0;
 var remainingQuestions;
-var wins = 0
-var loses = 0
-var timeouts = 0
+var wins = 0;
+var loses = 0;
+var timeouts = 0;
 var tvShowsGame = {
     questions: [
     {
@@ -30,13 +30,87 @@ var tvShowsGame = {
     correctAnswers: ["Eddard", "30",],
     css: "",
     title: ""
+};
+var gamesGame = {
+    questions: [
+    {
+        question: "What year did Super Mario Bros. game come out",
+        choice1: "1975",
+        choice2: "1985",
+        choice3: "1995",
+        choice4: "1991",
+        questionpic: "",
+        winpicture: "assets/images/mario.gif"
+    },
+    {
+        question: "Main character of this apocalyptic shooter game is famous for saying:\n \"Hail to the king, Baby!\" when reloading his shotgun.",
+        choice1: "Fallout 3",
+        choice2: "Grand Theft Auto: Vice City",
+        choice3: "Duke Nukem",
+        choice4: "Half-Life",
+        questionpic: "",
+        winpicture: "assets/images/duke.gif"
+    }
+],
+    correctAnswers: ["1985", "Duke Nukem",],
+    css: "",
+    title: ""
+}
+var carsGame = {
+    questions: [
+    {
+        question: "What model of Lamborghini is the most expensive?",
+        choice2: "Lamborghini Urus",
+        choice3: "Lamborghini Huracan",
+        choice1: "Lamborghini Veneno",
+        choice4: "Lamborghini Aventador",
+        questionpic: "",
+        winpicture: "assets/images/lambo.gif"
+    },
+    {
+        question: "This German auto brand is known for that most of it's cars are traditionally rear-wheel drive",
+        choice1: "Mercedes",
+        choice2: "BMW",
+        choice3: "Audi",
+        choice4: "Volkswagen",
+        questionpic: "",
+        winpicture: "assets/images/bmw.gif"
+    }
+],
+    correctAnswers: ["Lamborghini Veneno", "BMW",],
+    css: "",
+    title: ""
+}
+var historyGame = {
+    questions: [
+    {
+        question: "Which state officially joined USA in 1959?",
+        choice1: "Alaska",
+        choice2: "New Jersey",
+        choice3: "Hawaii",
+        choice4: "Costa Rica",
+        questionpic: "",
+        winpicture: "assets/images/hawaii.gif"
+    },
+    {
+        question: "Telephone invention is officially dated by this year",
+        choice1: "1811",
+        choice2: "1925",
+        choice4: "1876",
+        choice3: "1569",
+        questionpic: "",
+        winpicture: "assets/images/telephone.gif"
+    }
+],
+    correctAnswers: ["Hawaii", "1876",],
+    css: "",
+    title: ""
 }
 var loseImages = [
         "assets/images/fails/fail1.gif",
         "assets/images/fails/fail2.gif",
         "assets/images/fails/fail3.gif"
-    ]
-
+    ];
 
 $(document).ready(function() {
     $(document).on('mouseover', '.btn-option', function() {
@@ -81,13 +155,13 @@ $(document).ready(function() {
             $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
         },4100)
         setTimeout(function() {
-            $('#theme2').append('<button class="btn btn-option" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')  
+            $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')  
         },5200)
         setTimeout(function() {
-            $('#theme3').append('<button class="btn btn-option" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')  
+            $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')  
         },6300)
         setTimeout(function() {
-            $('#theme4').append('<button class="btn btn-option" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Sports</button>')  
+            $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>')  
         },7400)
         })
         var template = $('#gametemplate').html();
@@ -216,6 +290,5 @@ $(document).ready(function() {
             clearInterval(tictac);
             timeouts++;
             setTimeout(nextQuestion, 4000);
-            nextQuestion()
         }
     }
