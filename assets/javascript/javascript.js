@@ -120,7 +120,7 @@ $(document).ready(function() {
             $(this).css("border", "2px pink solid").css("color", "pink");
             })
     //INTRO PART
-    $('#choice').click(function(){
+    $(document).on('click', '#choice', function(){
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
         setTimeout(function() {
             $('#choice').empty()
@@ -190,6 +190,13 @@ $(document).ready(function() {
             $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')
             $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>')
             $('#choice').hide()
+            currentQuestion = 0
+            clearInterval(tictac);
+        })
+        $(document).on('click', '#main-menu', function() {
+            $('.start').empty();
+            $('.start').html(menuTemplate);
+           
             currentQuestion = 0
             clearInterval(tictac);
         })
