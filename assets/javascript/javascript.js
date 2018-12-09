@@ -141,22 +141,17 @@ $(document).ready(function() {
                 },1150)
             },1000)
         }, 2000)
-        $('#hatspot').empty()
-        $('#theme1').empty()
-        $('#theme2').empty()
-        $('#theme3').empty()
-        $('#theme4').empty()
         setTimeout(function() {
-            
+            $('#hatspot').empty()
             //EXPLOSION
             $('#hatspot').append('<img id="explosion" style="height:320px;width:100%; margin-top:70px" src="assets/images/explosion.gif">')    
         },8500)
         setTimeout(function() {
+            $('#hatspot').empty()
             //OPTIONS AND GIF IN THE CENTER
             $('#hatspot').append('<img id="options" style="height:320px;width:100%; margin-top:70px" src="assets/images/options.gif">')
         },9200)
         setTimeout(function() {
-            
             $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
         },4100)
         setTimeout(function() {
@@ -193,13 +188,9 @@ $(document).ready(function() {
             $('.start').html(menuTemplate)
             $('#choice').empty()
             $('.start-button').empty();
-            $('#theme1').empty()
             $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
-            $('#theme2').empty()
             $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')  
-            $('#theme3').empty()
             $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')  
-            $('#theme4').empty()
             $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>')  
             clearInterval(tictac)
         })
@@ -224,7 +215,6 @@ $(document).ready(function() {
 
     function startGame() {
         time = 0;
-        remainingQuestions = 0;
         wins = 0;
         loses = 0;
         timeouts = 0;
