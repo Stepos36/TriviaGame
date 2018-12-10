@@ -102,7 +102,7 @@ var historyGame = {
         winpicture: "assets/images/telephone.gif"
     },
     {
-        question: "Who was the first president of USA",
+        question: "Who was the first president of USA?",
         choice2: "Abraham Lincoln",
         choice1: "George Washington",
         choice3: "Theodore Roosevelt",
@@ -111,16 +111,16 @@ var historyGame = {
         winpicture: "https://media2.giphy.com/media/xUPGcnhop8QD7HHztS/giphy.gif?cid=3640f6095c0dd46f4f746b38637b5e74"
     },
     {
-        question: "Who was the first president of USA",
-        choice2: "Abraham Lincoln",
-        choice1: "George Washington",
-        choice3: "Theodore Roosevelt",
-        choice4: "Thomas Jefferson",
+        question: "Who was the second president of USA?",
+        choice2: "Thomas Jefferson",
+        choice1: "John Adams",
+        choice3: "Martin Van Buren",
+        choice4: "John F. Kennedy",
         questionpic: "",
-        winpicture: "https://media2.giphy.com/media/xUPGcnhop8QD7HHztS/giphy.gif?cid=3640f6095c0dd46f4f746b38637b5e74"
+        winpicture: "https://media1.giphy.com/media/3o7btZSWGqBFMJfPcQ/200.webp?cid=3640f6095c0ddd7b2e696c7163640b62"
     },
 ],
-    correctAnswers: ["Hawaii", "1876", "George Washington",],
+    correctAnswers: ["Hawaii", "1876", "George Washington", "John Adams", ],
     css: "",
     title: ""
 };
@@ -223,16 +223,18 @@ $(document).ready(function() {
            })
         //Submit a question
         $(document).on('click', '.submitter', function() {
+            if ($('.inputs').prop('checked', false)
             checkAnswer();
             remainingQuestions--;
             currentQuestion++;
             clearInterval(tictac);
             $('.inputs').prop('checked', false);
             setTimeout(nextQuestion, 4000)
+            
         })
         var menuTemplate = $('#menuTemplate').html()
         //Restart button code
-        $(document).on('click', '#restart', function() {
+        $(document).on('click', '.restartBtn', function() {
             var highestTimeoutId = setTimeout(";");                 //This part of code is taken from
             for (var i = 0 ; i < highestTimeoutId ; i++) {          //this StackOverflow topic(https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript/8524313)
             clearTimeout(i);                                        //And it clears all the intervals on the page(prevents from double appending of the option-buttons) 
@@ -353,6 +355,8 @@ $(document).ready(function() {
         $('#answers3').html('<p style="text-align:center; width:100%">Timed out: '+ timeouts + '</p>');
         $('.submitter').hide();
         $('.imagerow').hide();
+        $('#answers3').append("<button style=\"margin: 0 auto\" class=\"restartBtn\">Pick another topic</button>")
+        
     }
     function restoreTemplate() {
         $('.start').html(template)
