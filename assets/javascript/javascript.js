@@ -109,7 +109,13 @@ var historyGame = {
 var loseImages = [
         "assets/images/fails/fail1.gif",
         "assets/images/fails/fail2.gif",
-        "assets/images/fails/fail3.gif"
+        "assets/images/fails/fail3.gif",
+        "https://media0.giphy.com/media/RDuF5FVTSyzy8/giphy.gif?cid=3640f6095c0dc69941377043326fc799",
+        "https://media2.giphy.com/media/qqoaFu5Xsb3ji/giphy.gif?cid=3640f6095c0dc6d830767937736c69f6",
+        "https://media2.giphy.com/media/xTiTnooneW4SYfch8Y/giphy.gif?cid=3640f6095c0dc6ea2e61484336fa7929",
+        "http://www.reactiongifs.com/wp-content/uploads/2012/12/captain-america.gif",
+        "https://media3.giphy.com/media/26xBFWciE9FO5Idqg/giphy.gif?cid=3640f6095c0dc7bd642e3639419cb51b"
+
     ];
 var linearGradients = [
     "-webkit-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%)",
@@ -209,6 +215,10 @@ $(document).ready(function() {
         var menuTemplate = $('#menuTemplate').html()
         //Restart button code
         $(document).on('click', '#restart', function() {
+            var highestTimeoutId = setTimeout(";");                 //This part of code is taken from
+            for (var i = 0 ; i < highestTimeoutId ; i++) {          //this StackOverflow topic(https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript/8524313)
+            clearTimeout(i);                                        //And it clears all the intervals on the page(prevents from double appending of the option-buttons) 
+            }                                                       //if the "Restart" button is pressed right after the "Start Game" button
             $('.start').empty();
             $('.start').html(menuTemplate);
             $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>');
