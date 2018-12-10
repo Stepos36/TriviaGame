@@ -223,7 +223,7 @@ $(document).ready(function() {
            })
         //Submit a question
         $(document).on('click', '.submitter', function() {
-            if ($('.inputs').prop('checked', false)
+            
             checkAnswer();
             remainingQuestions--;
             currentQuestion++;
