@@ -55,7 +55,7 @@ var gamesGame = {
     correctAnswers: ["1985", "Duke Nukem",],
     css: "",
     title: ""
-}
+};
 var carsGame = {
     questions: [
     {
@@ -80,7 +80,7 @@ var carsGame = {
     correctAnswers: ["Lamborghini Veneno", "BMW",],
     css: "",
     title: ""
-}
+};
 var historyGame = {
     questions: [
     {
@@ -105,7 +105,7 @@ var historyGame = {
     correctAnswers: ["Hawaii", "1876",],
     css: "",
     title: ""
-}
+};
 var loseImages = [
         "assets/images/fails/fail1.gif",
         "assets/images/fails/fail2.gif",
@@ -115,17 +115,17 @@ var loseImages = [
 $(document).ready(function() {
     $(document).on('mouseover', '.btn-option', function() {
              $(this).css("border", "2px red solid").css("color", "red");
-            })
+            });
     $(document).on('mouseout', '.btn-option', function() {
             $(this).css("border", "2px pink solid").css("color", "pink");
-            })
+            });
     //INTRO PART
     $(document).on('click', '#choice', function(){
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
         setTimeout(function() {
-            $('#choice').empty()
+            $('#choice').empty();
             //HAT 
-            $('#hatspot').append('<img id="hat" style="opacity:0; height:320px;width:100%; margin-top:70px" src="assets/images/hat.png">')
+            $('#hatspot').append('<img id="hat" style="opacity:0; height:320px;width:100%; margin-top:70px" src="assets/images/hat.png">');
             $('#hat').animate({opacity: '1'},1000);
             for( i=0;i<4;i++) setTimeout( function() {
                 $('#hat').circulate({
@@ -135,87 +135,89 @@ $(document).ready(function() {
                 });
                 setInterval( function() {
                     $('#hat').css("filter", "brightness(2)")
-                },1100)
+                },1100);
                 setInterval( function() {
                     $('#hat').css("filter", "brightness(1)")
-                },1150)
+                },1150);
             },1000)
-        }, 2000)
+        }, 2000);
         setTimeout(function() {
-            $('#hatspot').empty()
+            $('#hatspot').empty();
             //EXPLOSION
-            $('#hatspot').append('<img id="explosion" style="height:320px;width:100%; margin-top:70px" src="assets/images/explosion.gif">')    
+            $('#hatspot').append('<img id="explosion" style="height:320px;width:100%; margin-top:70px" src="assets/images/explosion.gif">');    
         },8500)
         setTimeout(function() {
-            $('#hatspot').empty()
+            $('#hatspot').empty();
             //OPTIONS AND GIF IN THE CENTER
-            $('#hatspot').append('<img id="options" style="height:320px;width:100%; margin-top:70px" src="assets/images/options.gif">')
-        },9200)
+            //For this part I used an Open-Source(https://css-tricks.com/circulate/) plugin called Circulate
+            $('#hatspot').append('<img id="options" style="height:320px;width:100%; margin-top:70px" src="assets/images/options.gif">');
+        },9200);
         setTimeout(function() {
             $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')  
-        },4100)
+        },4100);
         setTimeout(function() {
             $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')  
-        },5200)
+        },5200);
         setTimeout(function() {
             $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')  
-        },6300)
+        },6300);
         setTimeout(function() {
             $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>')  
-        },7400)
+        },7400);
         })
         var template = $('#gametemplate').html();
         //Choose the game theme
         $(document).on('click', '.btn-option', function() {
             $('.start').empty();
-            chosenGame = eval($(this).attr("value"))
+            chosenGame = eval($(this).attr("value"));
             $('.start').html(template);
             startGame()
            })
         //Submit a question
         $(document).on('click', '.submitter', function() {
-            checkAnswer()
+            checkAnswer();
             remainingQuestions--;
-            currentQuestion++
+            currentQuestion++;
             clearInterval(tictac);
-            $('.inputs').prop('checked', false)
+            $('.inputs').prop('checked', false);
             setTimeout(nextQuestion, 4000)
         })
         var menuTemplate = $('#menuTemplate').html()
+        //Restart button code
         $(document).on('click', '#restart', function() {
             $('.start').empty();
             $('.start').html(menuTemplate);
-            $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>')
-            $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>')
-            $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>')
-            $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>')
-            $('#choice').hide()
-            currentQuestion = 0
+            $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>');
+            $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>');
+            $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>');
+            $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>');
+            $('#choice').hide();
+            currentQuestion = 0;
             clearInterval(tictac);
         })
+        //Main menu button code
         $(document).on('click', '#main-menu', function() {
             $('.start').empty();
             $('.start').html(menuTemplate);
-           
-            currentQuestion = 0
+            currentQuestion = 0;
             clearInterval(tictac);
         })
         //Radio checkboxes are given property of "checked" once user clicks on it
         $(document).on('click', '#input1', function() {
-            $(this).prop('checked', true)
-            inputCatcher()
+            $(this).prop('checked', true);
+            inputCatcher();
         })
         $(document).on('click', '#input2', function() {
-            $(this).prop('checked', true)
-            inputCatcher()
+            $(this).prop('checked', true);
+            inputCatcher();
         })
         $(document).on('click', '#input3', function() {
-            $(this).prop('checked', true)
-            inputCatcher()
+            $(this).prop('checked', true);
+            inputCatcher();
         })
         $(document).on('click', '#input4', function() {
-            $(this).prop('checked', true)
-            inputCatcher()
+            $(this).prop('checked', true);
+            inputCatcher();
         })
     })
 
@@ -225,10 +227,10 @@ $(document).ready(function() {
         wins = 0;
         loses = 0;
         timeouts = 0;
-        remainingQuestions = chosenGame.questions.length
+        remainingQuestions = chosenGame.questions.length;
         $("#timer").html("You have <span id=\"time\">15</span> seconds left");
-        console.log(remainingQuestions)
-        nextQuestion()
+        console.log(remainingQuestions);
+        nextQuestion();
     }
 
     function nextQuestion() {
@@ -236,16 +238,16 @@ $(document).ready(function() {
             gameOver();
         }
         else {
-        $('.imageboard').hide()
-        $('#timer').show()
-        $('#answers1').show()
-        $('#answers2').show()
-        $('.submitter').show()    
+        $('.imageboard').hide();
+        $('#timer').show();
+        $('#answers1').show();
+        $('#answers2').show();
+        $('.submitter').show();    
         $('#question').html(chosenGame.questions[currentQuestion].question);
-        $('#answer1').html(chosenGame.questions[currentQuestion].choice1)
-        $('#answer2').html(chosenGame.questions[currentQuestion].choice2)
-        $('#answer3').html(chosenGame.questions[currentQuestion].choice3)
-        $('#answer4').html(chosenGame.questions[currentQuestion].choice4)
+        $('#answer1').html(chosenGame.questions[currentQuestion].choice1);
+        $('#answer2').html(chosenGame.questions[currentQuestion].choice2);
+        $('#answer3').html(chosenGame.questions[currentQuestion].choice3);
+        $('#answer4').html(chosenGame.questions[currentQuestion].choice4);
         timerStart();
         }
     }
@@ -261,67 +263,67 @@ $(document).ready(function() {
         };
         if($('#input4').prop('checked')) {
             answer = chosenGame.questions[currentQuestion].choice4
-        }
+        };
     }
     function checkAnswer() {
         if ((chosenGame.correctAnswers).includes(answer)) {
             $('#question').html('<h1>Yay! This is a correct answer!</h1>');
-            $('#timer').hide()
-            $('#answers1').hide()
-            $('#answers2').hide()
-            $('.submitter').hide()
-            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"winimage\" src=" + chosenGame.questions[currentQuestion].winpicture + ">").show()
-            wins++
+            $('#timer').hide();
+            $('#answers1').hide();
+            $('#answers2').hide();
+            $('.submitter').hide();
+            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"winimage\" src=" + chosenGame.questions[currentQuestion].winpicture + ">").show();
+            wins++;
         }
         else {
-            loses++
+            loses++;
             $('#question').html('<h1>This is a wrong answer! The correct answer was ' + chosenGame.correctAnswers[currentQuestion] + '</h1>');
-            $('#timer').hide()
-            $('#answers1').hide()
-            $('#answers2').hide()
-            $('.submitter').hide()
-            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show()
+            $('#timer').hide();
+            $('#answers1').hide();
+            $('#answers2').hide();
+            $('.submitter').hide();
+            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show();
         }
     }
     
     function gameOver() {
         $('#question').html('<h1>Game is over</h1>');
-        $('#timer').empty()
-        $('.game').append('</br><div  class="row" id="answers3"></div>')
-        $('#answers1').show()
-        $('#answers2').show()
-        $('#answers1').html('<p style="text-align:center; width:100%">Correct answers: ' + wins + '</p>')
-        $('#answers2').html('<p style="text-align:center; width:100%">Wrong answers: ' + loses + '</p>')
-        $('#answers3').html('<p style="text-align:center; width:100%">Timed out: '+ timeouts + '</p>')
-        $('.submitter').hide()
-        $('.imagerow').hide()
+        $('#timer').empty();
+        $('.game').append('</br><div  class="row" id="answers3"></div>');
+        $('#answers1').show();
+        $('#answers2').show();
+        $('#answers1').html('<p style="text-align:center; width:100%">Correct answers: ' + wins + '</p>');
+        $('#answers2').html('<p style="text-align:center; width:100%">Wrong answers: ' + loses + '</p>');
+        $('#answers3').html('<p style="text-align:center; width:100%">Timed out: '+ timeouts + '</p>');
+        $('.submitter').hide();
+        $('.imagerow').hide();
     }
     function restoreTemplate() {
         $('.start').html(template)
     }
     function timerStart() {
-        time = 15
-        $('#time').html(time)
-        tictac = setInterval(timeCount, 1000)
+        time = 15;
+        $('#time').html(time);
+        tictac = setInterval(timeCount, 1000);
     }
 
     function timeCount() {
         if(time > 0) {
             time--;
-            $('#time').html(time)
+            $('#time').html(time);
         }
         if (time === 0) {
-            $('#timer').hide()
-            $('#answers1').hide()
-            $('#answers2').hide()
-            $('.submitter').hide()
+            $('#timer').hide();
+            $('#answers1').hide();
+            $('#answers2').hide();
+            $('.submitter').hide();
             $('#question').html('<h1>Time is up! The correct answer was ' + chosenGame.correctAnswers[currentQuestion] + '</h1>');
-            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show()
-            $('.inputs').prop('checked', false)
+            $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show();
+            $('.inputs').prop('checked', false);
             clearInterval(tictac);
             timeouts++;
             setTimeout(nextQuestion, 4000);
-            currentQuestion++
-            remainingQuestions--
+            currentQuestion++;
+            remainingQuestions--;
         }
     }
