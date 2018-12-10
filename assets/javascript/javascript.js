@@ -217,7 +217,7 @@ $(document).ready(function() {
         $(document).on('click', '#restart', function() {
             var highestTimeoutId = setTimeout(";");                 //This part of code is taken from
             for (var i = 0 ; i < highestTimeoutId ; i++) {          //this StackOverflow topic(https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript/8524313)
-            clearTimeout(i);                                        //And it clears all the timeouts on the page(prevents from double appending of the option-buttons) 
+            clearTimeout(i);                                        //And it clears all the intervals on the page(prevents from double appending of the option-buttons) 
             }                                                       //if the "Restart" button is pressed right after the "Start Game" button
             $('.start').empty();
             $('.start').html(menuTemplate);
@@ -231,11 +231,10 @@ $(document).ready(function() {
         })
         //Main menu button code
         $(document).on('click', '#main-menu', function() {
-            $(document).on('click', '#restart', function() {
             var highestTimeoutId = setTimeout(";");                 //This part of code is taken from
             for (var i = 0 ; i < highestTimeoutId ; i++) {          //this StackOverflow topic(https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript/8524313)
-            clearTimeout(i);                                        //And it clears all the timeouts on the page(prevents from double appending of the option-buttons) 
-            }                                                       //if the "Main-menu" button is pressed right after the "Start Game" button
+            clearTimeout(i);                                        //And it clears all the intervals on the page(prevents from double appending of the option-buttons) 
+            }                                                       //if the "Restart" button is pressed right after the "Start Game" button
             $('.start').empty();
             $('.start').html(menuTemplate);
             currentQuestion = 0;
