@@ -46,7 +46,7 @@ body {
     background: url("../images/background.jpg");
 }
 #push1 {
-    height: 50px;
+    height: 75px;
 }
 #choice {
     width:100%;
@@ -61,4 +61,11 @@ body {
     margin-top: -1px;
     color: red;
     margin-top: 100px
+}
+.pallet {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 3px rgb(136,139,143) groove;
+    border-radius: 20px;
+    height: 700px;
+    color:white;
 }

@@ -100,9 +100,27 @@ var historyGame = {
         choice3: "1569",
         questionpic: "",
         winpicture: "assets/images/telephone.gif"
-    }
+    },
+    {
+        question: "Who was the first president of USA",
+        choice2: "Abraham Lincoln",
+        choice1: "George Washington",
+        choice3: "Theodore Roosevelt",
+        choice4: "Thomas Jefferson",
+        questionpic: "",
+        winpicture: "https://media2.giphy.com/media/xUPGcnhop8QD7HHztS/giphy.gif?cid=3640f6095c0dd46f4f746b38637b5e74"
+    },
+    {
+        question: "Who was the first president of USA",
+        choice2: "Abraham Lincoln",
+        choice1: "George Washington",
+        choice3: "Theodore Roosevelt",
+        choice4: "Thomas Jefferson",
+        questionpic: "",
+        winpicture: "https://media2.giphy.com/media/xUPGcnhop8QD7HHztS/giphy.gif?cid=3640f6095c0dd46f4f746b38637b5e74"
+    },
 ],
-    correctAnswers: ["Hawaii", "1876",],
+    correctAnswers: ["Hawaii", "1876", "George Washington",],
     css: "",
     title: ""
 };
