@@ -9,9 +9,6 @@
     width:600px;
     background-color: white
 }
-#trivia:hover {
-    background: -webkit-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%);
-}
 #restart,#main-menu {
     color:white;
     font-size: 50px

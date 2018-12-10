@@ -111,8 +111,27 @@ var loseImages = [
         "assets/images/fails/fail2.gif",
         "assets/images/fails/fail3.gif"
     ];
+var linearGradients = [
+    "-webkit-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(96,236,20) 0%, rgba(236,158,41) 33%, rgba(96,236,20) 66%, rgba(236,158,41) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(59,0,236) 0%, rgba(232,236,0) 33%, rgba(59,0,236) 66%, rgba(232,236,0) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(236,4,0) 0%, rgba(30,88,30) 33%, rgba(236,4,0) 66%, rgba(30,88,30) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(48,252,255) 0%, rgba(120,117,126) 33%, rgba(48,252,255) 66%, rgba(120,117,126) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(255,0,72) 0%, rgba(188,184,196) 33%, rgba(255,0,72) 66%, rgba(188,184,196) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(248,255,255) 0%, rgba(180,74,196) 33%, rgba(248,255,255) 66%, rgba(180,74,196) 100%)",
+    "-webkit-linear-gradient(45deg, rgba(255,255,255) 0%, rgba(255,255,255) 33%, rgba(255,255,255) 66%, rgba(255,255,255) 100%)"
+]
 
 $(document).ready(function() {
+    $(document).on('click', '#trivia', function() {
+        $('#trivia').css('background', linearGradients[Math.floor(Math.random() * linearGradients.length)])
+    });
+    $(document).on('mouseover', '#trivia', function() {
+        $('#trivia').css('background', linearGradients[Math.floor(Math.random() * linearGradients.length)])
+    });
+    $(document).on('mouseout', '#trivia', function() {
+        $('#trivia').css('background', linearGradients[7])
+    });
     $(document).on('mouseover', '.btn-option', function() {
              $(this).css("border", "2px red solid").css("color", "red");
             });
