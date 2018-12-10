@@ -165,7 +165,7 @@ $(document).ready(function() {
              $(this).css("border", "2px red solid").css("color", "red");
             });
     $(document).on('mouseout', '.btn-option', function() {
-            $(this).css("border", "2px pink solid").css("color", "pink");
+            $(this).css("border", "2px pink solid").css("color", "white");
             });
     //INTRO PART
     $(document).on('click', '#choice', function(){
@@ -216,21 +216,18 @@ $(document).ready(function() {
         var template = $('#gametemplate').html();
         //Choose the game theme
         $(document).on('click', '.btn-option', function() {
-            $('.start').empty();
+            $('.start').empty().html(template);
             chosenGame = eval($(this).attr("value"));
-            $('.start').html(template);
             startGame()
            })
         //Submit a question
-        $(document).on('click', '.submitter', function() {
-            
+        $(document).on('click', '.submitter', function() {  
             checkAnswer();
             remainingQuestions--;
             currentQuestion++;
             clearInterval(tictac);
             $('.inputs').prop('checked', false);
-            setTimeout(nextQuestion, 4000)
-            
+            next = setTimeout(nextQuestion, 4000)
         })
         var menuTemplate = $('#menuTemplate').html()
         //Restart button code
@@ -239,8 +236,7 @@ $(document).ready(function() {
             for (var i = 0 ; i < highestTimeoutId ; i++) {          //this StackOverflow topic(https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript/8524313)
             clearTimeout(i);                                        //And it clears all the intervals on the page(prevents from double appending of the option-buttons) 
             }                                                       //if the "Restart" button is pressed right after the "Start Game" button
-            $('.start').empty();
-            $('.start').html(menuTemplate);
+            $('.start').empty().html(menuTemplate);
             $('#theme1').append('<button class="btn btn-option" value="tvShowsGame" id="topic1" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">TV Shows</button>');
             $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>');
             $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>');
@@ -254,9 +250,8 @@ $(document).ready(function() {
             var highestTimeoutId = setTimeout(";");                 //This part of code is taken from
             for (var i = 0 ; i < highestTimeoutId ; i++) {          //this StackOverflow topic(https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript/8524313)
             clearTimeout(i);                                        //And it clears all the intervals on the page(prevents from double appending of the option-buttons) 
-            }                                                       //if the "Restart" button is pressed right after the "Start Game" button
-            $('.start').empty();
-            $('.start').html(menuTemplate);
+            }                                                       //if the "Main-menu" button is pressed right after the "Start Game" button
+            $('.start').empty().html(menuTemplate);
             currentQuestion = 0;
             clearInterval(tictac);
         })
@@ -277,6 +272,11 @@ $(document).ready(function() {
             $(this).prop('checked', true);
             inputCatcher();
         })
+        //On gif click skip the animation and proceed to the next question
+        $(document).on('click', '.imageboard', function() {
+            clearInterval(next)
+            nextQuestion()
+        });
     })
 
     function startGame() {
@@ -297,10 +297,7 @@ $(document).ready(function() {
         }
         else {
         $('.imageboard').hide();
-        $('#timer').show();
-        $('#answers1').show();
-        $('#answers2').show();
-        $('.submitter').show();    
+        $('.submitter, #answers1, #answers2, #timer').show();    
         $('#question').html(chosenGame.questions[currentQuestion].question);
         $('#answer1').html(chosenGame.questions[currentQuestion].choice1);
         $('#answer2').html(chosenGame.questions[currentQuestion].choice2);
@@ -326,35 +323,26 @@ $(document).ready(function() {
     function checkAnswer() {
         if ((chosenGame.correctAnswers).includes(answer)) {
             $('#question').html('<h1>Yay! This is a correct answer!</h1>');
-            $('#timer').hide();
-            $('#answers1').hide();
-            $('#answers2').hide();
-            $('.submitter').hide();
+            $('#timer, #answers1, #answers2, .submitter').hide();
             $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"winimage\" src=" + chosenGame.questions[currentQuestion].winpicture + ">").show();
             wins++;
         }
         else {
             loses++;
             $('#question').html('<h1>This is a wrong answer! The correct answer was ' + chosenGame.correctAnswers[currentQuestion] + '</h1>');
-            $('#timer').hide();
-            $('#answers1').hide();
-            $('#answers2').hide();
-            $('.submitter').hide();
+            $('#timer, #answers1, #answers2, .submitter').hide();
             $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show();
         }
     }
     
     function gameOver() {
         $('#question').html('<h1>Game is over</h1>');
-        $('#timer').empty();
+        $('#timer, .submitter, .imagerow').hide();
         $('.game').append('</br><div  class="row" id="answers3"></div>');
-        $('#answers1').show();
-        $('#answers2').show();
+        $('#answers1, #answers2').show();
         $('#answers1').html('<p style="text-align:center; width:100%">Correct answers: ' + wins + '</p>');
         $('#answers2').html('<p style="text-align:center; width:100%">Wrong answers: ' + loses + '</p>');
         $('#answers3').html('<p style="text-align:center; width:100%">Timed out: '+ timeouts + '</p>');
-        $('.submitter').hide();
-        $('.imagerow').hide();
         $('#answers3').append("<button style=\"margin: 0 auto\" class=\"restartBtn\">Pick another topic</button>")
         
     }
@@ -373,10 +361,7 @@ $(document).ready(function() {
             $('#time').html(time);
         }
         if (time === 0) {
-            $('#timer').hide();
-            $('#answers1').hide();
-            $('#answers2').hide();
-            $('.submitter').hide();
+            $('#timer, #answers1, #answers2, .submitter').hide();
             $('#question').html('<h1>Time is up! The correct answer was ' + chosenGame.correctAnswers[currentQuestion] + '</h1>');
             $('.imageboard').html("<img style=\"width:300px\" class=\"mx-auto\" id=\"loseimage\" src=" + loseImages[Math.floor(Math.random() * loseImages.length)] + ">").show();
             $('.inputs').prop('checked', false);
