@@ -6,7 +6,6 @@
     opacity: 0.99
 }
 #trivia {
-    margin-left: 60px;
     width:600px;
     background-color: white
 }
@@ -19,6 +18,7 @@
 }
 #restart{
     margin-right:15px;
+    margin-left: 105px;
 }
 #main-menu{
     margin-left:15px
@@ -30,8 +30,8 @@
     cursor: pointer;
 }
 #restart:hover{
-    margin-left: -6.5px;
-    margin-right: 13px;
+    margin-right: 6.5px;
+    margin-left: 105px;
     padding-right: 3px
 }
 #main-menu:hover{
@@ -39,7 +39,7 @@
 }
 #topbar-content {
     margin:0 auto;
-    width: 1108px
+    width: 1158px
 }
 .navbar-item {
     display: inline;
