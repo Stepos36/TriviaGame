@@ -119,7 +119,12 @@ var linearGradients = [
     "-webkit-linear-gradient(45deg, rgba(48,252,255) 0%, rgba(120,117,126) 33%, rgba(48,252,255) 66%, rgba(120,117,126) 100%)",
     "-webkit-linear-gradient(45deg, rgba(255,0,72) 0%, rgba(188,184,196) 33%, rgba(255,0,72) 66%, rgba(188,184,196) 100%)",
     "-webkit-linear-gradient(45deg, rgba(248,255,255) 0%, rgba(180,74,196) 33%, rgba(248,255,255) 66%, rgba(180,74,196) 100%)",
-    "-webkit-linear-gradient(45deg, rgba(255,255,255) 0%, rgba(255,255,255) 33%, rgba(255,255,255) 66%, rgba(255,255,255) 100%)"
+    "-webkit-linear-gradient(45deg, rgba(255,255,255) 0%, rgba(255,255,255) 33%, rgba(255,255,255) 66%, rgba(255,255,255) 100%)",
+    "url(https://www.publicdomainpictures.net/pictures/200000/nahled/american-flag-background-1477488261IIY.jpg)",
+    "url(https://i.pinimg.com/originals/f8/a3/b9/f8a3b9852df2a9b24ca019401a56068c.jpg)",
+    "url(https://static9.depositphotos.com/1000123/1183/i/450/depositphotos_11831225-stock-photo-deep-space-abstract-natural-backgrounds.jpg)",
+    "url(http://hirafoundation.com/wp-content/uploads/2013/05/the_sky.jpg)",
+    "url(https://inthelooppodcast.com/wp-content/uploads/2014/10/mummybanner.jpg)",
 ]
 
 $(document).ready(function() {
