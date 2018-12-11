@@ -152,6 +152,7 @@ var linearGradients = [
 ]
 
 $(document).ready(function() {
+    //Dynamic css functions
     $(document).on('click', '#trivia', function() {
         $('#trivia').css('background', linearGradients[Math.floor(Math.random() * linearGradients.length)])
     });
@@ -167,9 +168,18 @@ $(document).ready(function() {
     $(document).on('mouseout', '.btn-option', function() {
             $(this).css("border", "2px pink solid").css("color", "white");
             });
+    $(document).on('mouseout', '.btn-quit', function() {
+        $(this).css("border", "none").css("color", "white").css("backgroundcolor", "black");
+        });
     //INTRO PART
+    //Onclick for quit button
+    $(document).on('click', '.btn-quit', function() {
+        window.close();
+    })
+    //On click for start button
     $(document).on('click', '#choice', function(){
         $('#choice').animate({"margin-top": "-50px", opacity: '0'},1000);
+        $('.btn-quit').animate({"margin-top": "-50px", opacity: '0'},1000);
         setTimeout(function() {
             $('#choice').empty();
             //HAT 
@@ -241,7 +251,7 @@ $(document).ready(function() {
             $('#theme2').append('<button class="btn btn-option" value="gamesGame" id="topic2" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Games</button>');
             $('#theme3').append('<button class="btn btn-option" value="carsGame" id="topic3" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">Cars</button>');
             $('#theme4').append('<button class="btn btn-option" value="historyGame" id="topic4" style="background-color: black;color:white;font-size:30px;padding:3px; border:2px pink solid; width:150px;height:50px; border-radius:20px; margin-top:30px">History</button>');
-            $('#choice').hide();
+            $('#choice, .btn-quit').hide();
             currentQuestion = 0;
             clearInterval(tictac);
         })
@@ -278,7 +288,6 @@ $(document).ready(function() {
             nextQuestion()
         });
     })
-
     function startGame() {
         currentQuestion = 0;
         time = 0;
