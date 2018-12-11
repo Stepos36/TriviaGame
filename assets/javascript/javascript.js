@@ -174,7 +174,7 @@ $(document).ready(function() {
     //INTRO PART
     //Onclick for quit button
     $(document).on('click', '.btn-quit', function() {
-        window.close();
+        window.open('', '_self').close();
     })
     //On click for start button
     $(document).on('click', '#choice', function(){
