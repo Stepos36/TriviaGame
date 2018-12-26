@@ -25,9 +25,81 @@ var tvShowsGame = {
         choice4: "27",
         questionpic: "",
         winpicture: "assets/images/simpson.gif"
+    },
+    {
+        question: "Everyone knows this show by it's disclaimer: 'The following program contains coarse language and due to its content it should not be viewed by anyone.'",
+        choice1: "Family Guy",
+        choice2: "South Park",
+        choice3: "Rick and Morty",
+        choice4: "Mr Pickles",
+        questionpic: "",
+        winpicture: "assets/images/spark.gif"
+    },
+    {
+        question: "Because of mentioning it in a famous TV Show 'Rick and Morty', McDonald's had to bring this product back",
+        choice1: "McHot Dog",
+        choice2: "Super-Size Fries",
+        choice3: "Mighty Wings",
+        choice4: "Szechuan Sauce",
+        questionpic: "",
+        winpicture: "assets/images/szechuan.gif"
+    },
+    {
+        question: "This fake-documentary comedy TV show got 42 Primetime Emmy Awards nominations in 2005-2013",
+        choice1: "Parks and Recreation",
+        choice2: "The Office",
+        choice3: "Borat",
+        choice4: "Supernatural",
+        questionpic: "",
+        winpicture: "assets/images/theoffice.gif"
+    },
+    {
+        question: "How old is Jim Parsons, who played Sheldon Cooper in 'Big Bang theory'?",
+        choice1: "31",
+        choice2: "25",
+        choice3: "45",
+        choice4: "57",
+        questionpic: "",
+        winpicture: "assets/images/bbt.gif"
+    },
+    {
+        question: "The series depicts the dysfunctional family of Frank Gallagher, a single father raising six children. He spends his days drunk or in search of misadventures, and his children learn to take care of themselves.",
+        choice1: "Snow White and the Seven Dwarfs",
+        choice2: "6 Little McGhees",
+        choice3: "Shameless",
+        choice4: "Full house",
+        questionpic: "",
+        winpicture: "assets/images/shameless.gif"
+    },
+    {
+        question: "What's the most popular show of 2018 in the world?",
+        choice1: "The Walking Dead",
+        choice2: "Pretty Little Liars",
+        choice3: "Stranger Things",
+        choice4: "Game of Thrones",
+        questionpic: "",
+        winpicture: "assets/images/gameot.gif"
+    },
+    {
+        question: "How does tv show 'House' end?",
+        choice1: "Doctor House dies",
+        choice2: "House gets married",
+        choice3: "House fakes his own death",
+        choice4: "House gets old and lives a long happy life",
+        questionpic: "",
+        winpicture: "assets/images/house.gif"
+    },
+    {
+        question: "This actor's character of Jonathan Irons comes to life in a computer game 'Call of Duty: Advanced Warfare'",
+        choice1: "Arnold Schwarzenegger",
+        choice2: "David Dukhovny",
+        choice3: "Tom Hardy",
+        choice4: "Kevin Spacey",
+        questionpic: "",
+        winpicture: "assets/images/spacey.gif"
     }
 ],
-    correctAnswers: ["Eddard", "30",],
+    correctAnswers: ["Eddard", "30","South Park","Szechuan Sauce","The Office", "45","Shameless","Game of Thrones","House fakes his own death","Kevin Spacey"],
     css: "",
     title: ""
 };
