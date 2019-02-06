@@ -119,12 +119,39 @@ var gamesGame = {
         choice1: "Fallout 3",
         choice2: "Grand Theft Auto: Vice City",
         choice3: "Duke Nukem",
-        choice4: "Half-Life",
+        choice4: "Dota",
         questionpic: "",
         winpicture: "assets/images/duke.gif"
+    },
+    {
+        question: "Fans of this game series, which made Valve famous, spent already 12 years waiting for the next game",
+        choice1: "The Legend of Zelda",
+        choice2: "Gothic",
+        choice3: "Half-life",
+        choice4: "Counter-strike",
+        questionpic: "",
+        winpicture: "assets/images/half-life.gif"
+    },
+    {
+        question: "This streaming platform, bought by Amazon in 2014 for $970, has more than 15 million average daily active users",
+        choice1: "Twich",
+        choice2: "Youtube",
+        choice3: "Vimeo",
+        choice4: "Facebook",
+        questionpic: "",
+        winpicture: "assets/images/duke.gif"
+    },
+    {
+        question: "This game publisher, who published Skyrim previously, is hated by 90% of it's fans \n for their latest multiplayer release",
+        choice1: "Valve",
+        choice2: "Grand Theft Auto: Vice City",
+        choice3: "Duke Nukem",
+        choice4: "Bethesda",
+        questionpic: "",
+        winpicture: "assets/images/fallout.gif"
     }
 ],
-    correctAnswers: ["1985", "Duke Nukem",],
+    correctAnswers: ["1985", "Duke Nukem", "Half-life", "Twich", "Bethesda", ],
     css: "",
     title: ""
 };
@@ -204,8 +231,10 @@ var loseImages = [
         "https://media2.giphy.com/media/qqoaFu5Xsb3ji/giphy.gif?cid=3640f6095c0dc6d830767937736c69f6",
         "https://media2.giphy.com/media/xTiTnooneW4SYfch8Y/giphy.gif?cid=3640f6095c0dc6ea2e61484336fa7929",
         "http://www.reactiongifs.com/wp-content/uploads/2012/12/captain-america.gif",
-        "https://media3.giphy.com/media/26xBFWciE9FO5Idqg/giphy.gif?cid=3640f6095c0dc7bd642e3639419cb51b"
-
+        "https://media3.giphy.com/media/26xBFWciE9FO5Idqg/giphy.gif?cid=3640f6095c0dc7bd642e3639419cb51b",
+        "assets/images/fails/fail4.gif",
+        "assets/images/fails/fail5.gif",
+        "assets/images/fails/fail6.gif"
     ];
 var linearGradients = [
     "-webkit-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%)",
@@ -221,6 +250,11 @@ var linearGradients = [
     "url(https://static9.depositphotos.com/1000123/1183/i/450/depositphotos_11831225-stock-photo-deep-space-abstract-natural-backgrounds.jpg)",
     "url(http://hirafoundation.com/wp-content/uploads/2013/05/the_sky.jpg)",
     "url(https://inthelooppodcast.com/wp-content/uploads/2014/10/mummybanner.jpg)",
+    "url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/62/30/9157aa94e693d90.jpg)",
+    "url(https://png.pngtree.com/thumb_back/fh260/back_pic/02/50/62/56577e16e23ea94.jpg)",
+    "url(https://cdn.pixabay.com/photo/2018/02/07/12/35/wood-3136982_960_720.jpg)",
+    "url(https://media.istockphoto.com/photos/gold-background-picture-id638678352?k=6&m=638678352&s=612x612&w=0&h=MP6uaL9IMrFSo1jSVPoM5EqV0AikFNxicQcbxD_qayo=)",
+    "url(https://cdn.pixabay.com/photo/2010/12/13/10/05/background-2277__340.jpg)"
 ]
 
 $(document).ready(function() {
